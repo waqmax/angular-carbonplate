@@ -1,8 +1,8 @@
 {
   "name": "angular-carbonplate",
   "authors": [
-    "Yididiya <yididiya.yilma@gmail.com>",
-    "Waqwoya <waqmes@gmail.com>"
+    "Yididiya Yilma <yididiya.yilma@gmail.com>",
+    "Waqwoya Mesfin <waqmes@gmail.com>"
   ],
   "description": "A practical boilerplate for creating a large angularJS application.",
   "main": "",
@@ -10,7 +10,7 @@
   "homepage": "",
   "ignore": [
     "**/.*",
-    "bower_components",
+    "bower_components"
   ],
   "dependencies": {
     "angular": "^1.5.7",
