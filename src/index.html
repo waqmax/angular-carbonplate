@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="assets/core/css/style.css">
+    <!-- End custom css -->
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="assets/core/fonts/font-awesome/css/font-awesome.css">
+    <!-- End font awesome-->
+
+</head>
+<body>
+
+  <!--  Header goes here -->
+  <ui-view></ui-view>
+
+ <!--  Footer goes here -->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-touch/angular-touch.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+    <script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script type="text/javascript" src="../bower_components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="../bower_components/restangular/dist/restangular.min.js"></script>
+
+
+   	<!--Auth Module-->
+<script type="text/javascript" src="app/auth/auth.module.js" ></script>
+<script type="text/javascript" src="app/auth/auth.route.js" ></script>
+<script type="text/javascript" src="app/auth/auth.service.js" ></script>
+<script type="text/javascript" src="app/auth/auth.controller.js" ></script>
+
+
+
+<!--App module-->
+<script type="text/javascript" src="app/app.module.js"></script>
+<script type="text/javascript" src="app/core/core.module.js"></script>
+<script type="text/javascript" src="app/core/core.service.js"></script>
+<script type="text/javascript" src="app/core/core.route.js"></script>
+<script type="text/javascript" src="app/core/main.controller.js"></script>
+
+
+<!--Public module-->
+<script type="text/javascript" src="app/public/public.module.js"></script>
+
+
+
+
+<!--Public Core module-->
+<script type="text/javascript" src="app/public/core/core.module.js"></script>
+<script type="text/javascript" src="app/public/core/core.service.js"></script>
+<script type="text/javascript" src="app/public/core/core.route.js"></script>
+<script type="text/javascript" src="app/public/core/public.controller.js"></script>
+<!--Public Core module-->
+
+
+<!--Home module-->
+<script type="text/javascript" src="app/public/home/home.module.js"></script>
+<script type="text/javascript" src="app/public/home/home.service.js"></script>
+<script type="text/javascript" src="app/public/home/home.route.js"></script>
+<script type="text/javascript" src="app/public/home/home.controller.js"></script>
+<!--End Home Module-->
+
+</body>
+</html>
