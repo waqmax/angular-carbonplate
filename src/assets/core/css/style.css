@@ -1,3 +1,17 @@
 /*
-    Custom CSS goes here
+    Style for main search bar
 */
+
+#main-search-form{
+    margin:2%;
+}
+
+#main-search-bar{
+    width:80%;
+}
+
+#main-search-button{
+    margin-left: 10px;
+    float:left;
+    width:10%;
+}

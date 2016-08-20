@@ -8,7 +8,7 @@
     function MainController($state,$rootScope) {
         var vm = this;
         vm.currentState = $state.current.name;
-        debugger;
+        
     }
 
 })();
