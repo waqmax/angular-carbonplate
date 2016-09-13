@@ -1,14 +1,13 @@
 /**
- * Created by Job on 6/27/2016.
+ * Created by mac on 9/2/16.
  */
 (function () {
     'use strict';
 
-    angular
-        .module('app.public.home')
-        .controller('HomeController', HomeController);
+    angular.module("app.admin.books")
+        .controller("BooksController",BooksController);
 
-    function HomeController($state,BookService,$rootScope) {
+    function BooksController($state,$rootScope,MyBooksService,Books) {
         var vm = this;
         vm.currentPage = 1;
         vm.booksPerPage = 6;
@@ -17,13 +16,19 @@
         $rootScope.currentState = $state.current.name;
         vm.getBooks = getBooks;
         vm.initSearch = initSearch;
+        
+        vm.getBooks();
 
-        //debugger;
-        getBooks();
-
+        function getBooks2(){
+            Books.getList().then(function(data){
+                vm.books = data;
+                vm.itemsCount = data.length;
+            });
+        }
+        
         function getBooks() {
             //debugger;
-            BookService.getBooks(vm.currentPage, vm.query).then(function (data) {
+            MyBooksService.getBooks(vm.currentPage, vm.query).then(function (data) {
                 vm.books = data.results;
                 vm.itemsCount = data.count;
 
@@ -38,6 +43,7 @@
             vm.getBooks();
             //debugger;
         }
+
     }
 
 })();

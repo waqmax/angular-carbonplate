@@ -1,0 +1,21 @@
+<div class="login-container">
+    <h2>Sign in</h2>
+    <form class="form-horizontal" ng-submit="vm.submitCredentials()">
+        <div class="alert alert-warning" role="alert" ng-show="vm.errors">
+            <strong>Oh snap!</strong>
+            <ul>
+                <li ng-repeat="error in vm.errors.non_field_errors">{{error}}</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <input type="text" name="username" ng-model="vm.username" placeholder="Username" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" ng-model="vm.password" placeholder="******" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success "> <i class="fa fa-sign-in"></i> Sign in</button>
+            <a href="#" class="forgot-password"> Forgot password</a>
+        </div>
+    </form>
+</div>

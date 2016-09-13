@@ -1,0 +1,40 @@
+
+<div class="col-lg-12">
+    <form id="main-search-form" ng-submit="vm.initSearch()">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i> </span>
+            <input ng-model="vm.query" ng-change="vm.initSearch()" class="form-control" id="main-search-bar" placeholder="Da da da ..." aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-primary" id="main-search-button"> Search</button>
+        </div>
+    </form>
+</div>
+
+<h1 style="text-align: center">Do you have these books?</h1>
+
+<table class="table">
+    <thead>
+        <th>#</th>
+        <th>Title</th>
+        <th>Person</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        <tr dir-paginate="wish in vm.wishes | itemsPerPage: vm.wishesPerPage" total-items="vm.itemsCount" current-page="vm.currentPage">
+            <td>{{$index + ((vm.wishesPerPage - 1) * (vm.currentPage - 1) + vm.currentPage) }}</td>
+            <td>{{ wish.title }}</td>
+            <td>{{ wish.user.first_name }} {{ wish.user.last_name }}</td>
+            <td>{{ wish.user.profile.mobile_phone }}</td>
+            <td>{{ wish.user.email }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="col-lg-12">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <dir-pagination-controls on-page-change="vm.getWishes()" boundary-links="true" max-size="10" direction-links="true"></dir-pagination-controls>
+      </ul>
+    </nav>
+
+</div>

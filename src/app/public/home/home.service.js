@@ -5,22 +5,16 @@
     angular.module("app.public.home")
         .factory("BookService",BookService);
 
-    function BookService(Restangular){
+    function BookService(TokenRestangular){
 
-        var service = Restangular.service("books");
+        var service = TokenRestangular.service("books");
         service.getBooks = getBooks;
-        service.filterBooks = searchBook;
 
-       function getBooks(currentPage){
+       function getBooks(currentPage,query){
             //debugger;
-            return Restangular.all("books/?page="+currentPage).customGET('');
+           query = query === undefined ? "" : query;
+            return TokenRestangular.all("books/?page="+currentPage+"&title="+query).customGET('');
         }
-
-        function searchBook(currentPage,query){
-            //debugger;
-            return Restangular.all("books/?page="+currentPage+"&title="+query).customGET('');
-        }
-
 
         return service;
     }

@@ -3,5 +3,5 @@
  */
 (function () {
     'use strict';
-    angular.module("app.public",["app.public.core","app.public.home"]);
+    angular.module("app.public",["app.public.core","app.public.home","app.public.book","app.public.wish",]);
 })();

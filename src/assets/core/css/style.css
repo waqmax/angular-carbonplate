@@ -1,4 +1,14 @@
 /*
+    General
+*/
+
+.required-asterisk{
+    display:inline;
+    color:red;
+    font-weight:bold;
+}
+
+/*
     Style for main search bar
 */
 
@@ -14,4 +24,127 @@
     margin-left: 10px;
     float:left;
     width:10%;
+}
+
+/*
+    main grid style
+*/
+.thumbnail{
+    height: 404px;
+}
+.caption{
+    min-height: 194px;
+}
+
+.caption-button{
+    position:absolute;
+    bottom:25px;
+}
+
+.condition-stars{
+    margin-left: 10px;
+}
+
+.sidebar-filter{
+    max-height: 200px;
+    overflow: scroll;
+}
+
+.sidebar-filter li{
+    list-style: none;
+}
+
+/*
+    Book detail style
+*/
+
+.canceled{
+    text-decoration:line-through;
+}
+
+dd{
+    display: inline;
+}
+
+.book-detail{
+    clear:both;
+    margin-top:50px;
+}
+
+.field-group{
+    margin:5px;
+}
+
+.pricetags{
+    height: 50px;
+    border:1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    padding:5px;
+
+}
+
+.active-price{
+    background-color: #ccc;
+}
+
+.book-price-value{
+    font-size:16pt;
+    font-weight: bold;
+}
+.book-price-created-date{
+    margin-left:50px;
+    font-size:10pt;
+}
+.book-price-active{
+    float:right;
+}
+/*
+    Signin page style
+*/
+
+.login-container{
+    height: 300px;
+    width: 350px;
+    margin:0 auto;
+    /*border:1px solid black;*/
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding:20px;
+}
+
+.login-container h2{
+    text-align: center;
+}
+
+.forgot-password{
+    float:laft;
+}
+
+/*
+    Signup page style
+*/
+
+.register-container{
+    width: 500px;
+    margin:0 auto;
+    /*border:1px solid black;*/
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding:20px;
+}
+
+.register-container h2{
+    text-align: center;
+}
+
+/*
+    Footer style
+*/
+
+#footer{
+    position: relative;
+    bottom: 0;
 }

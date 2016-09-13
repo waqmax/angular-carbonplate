@@ -8,12 +8,16 @@
     function moduleConfig($stateProvider,$urlRouterProvider){
         //$urlRouterProvider.otherwise("/");
         $stateProvider
-            .state('login', {
-                url: "/login",
-                templateUrl: "app/auth/login.html",
+            .state("main.public.signin",{
+               url:"/signin",
+                templateUrl: "app/public/core/signin.html",
                 controller:"AuthController",
-                controllerAs:"vm",
+                controllerAs: "vm"
+            }).state("main.public.signup",{
+               url:"/signup",
+                templateUrl: "app/public/core/signup.html",
+                controller:"SignupController",
+                controllerAs: "vm"
             });
     }
-
 })();

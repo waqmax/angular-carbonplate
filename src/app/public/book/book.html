@@ -1,0 +1,124 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Book detail</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+
+            <div class="col-lg-4">
+
+                    <img ng-src="{{vm.book.cover_page}}" style="width: 100%; display: block;">
+
+            </div>
+
+            <div class="col-lg-8">
+                <h1>{{vm.book.title}}</h1>
+
+                <div ng-repeat="price in vm.prices" ng-show="vm.prices.length">
+                    <h3 style="display: inline; float:left" ng-class="{'canceled':!$last}">
+                        <span class="label" ng-class="{'label-warning':!$last,'label-success':$last}"> <i class="fa fa-check-circle" ng-show="$last"></i>
+                         {{price.value}} {{price.currency}} </span>
+                    </h3>
+                </div>
+
+                <div ng-hide="vm.prices.length">
+                    <h3><span class="label label-default"> <i class="fa fa-minus-circle"></i> Unknown price</span></h3>
+                </div>
+
+                <div class="form-horizontal book-detail">
+
+                    <hr>
+
+                    <div class="form-group ">
+                    <label class="col-sm-2">Authors</label>
+                    <div class="col-sm-10">
+                      <span ng-repeat="author in vm.book.authors">{{author.name}} <span ng-show="!$last">,</span> </span>
+                    </div>
+                  </div>
+
+                  <div class="form-group ">
+                    <label class="col-sm-2">Description</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.description}}</span>
+                    </div>
+                  </div>
+
+                   <div class="form-group field-group">
+                    <label class="col-sm-2">Language</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.language}}</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group field-group">
+                    <label class="col-sm-2">Genre</label>
+                    <div class="col-sm-10">
+                      <span ng-repeat="genre in vm.book.genre">{{genre.name}} <span ng-show="!$last">,</span> </span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Condition</label>
+                    <div class="col-sm-10">
+                        <span class="condition-stars" ng-show="vm.book.condition == 3"> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></span>
+                        <span class="condition-stars" ng-show="vm.book.condition == 2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></span>
+                        <span class="condition-stars" ng-show="vm.book.condition == 1"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Status</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.status}}</span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Published</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.published}}</span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Volume</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.volume}}</span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Edition</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.edition}}</span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Negotiable</label>
+                    <div class="col-sm-10">
+                      <span><i class="fa" ng-class="{'fa-remove':!vm.book.negotiable,'fa-check':vm.book.negotiable}"></i></span>
+                    </div>
+                  </div>
+
+                    <div class="form-group field-group">
+                    <label class="col-sm-2">Shelved</label>
+                    <div class="col-sm-10">
+                      <span>{{vm.book.shelved}}</span>
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
