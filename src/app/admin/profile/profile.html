@@ -12,7 +12,9 @@
                 <div class="form-group ">
                 <label class="col-sm-2">Picture </label>
                 <div class="col-sm-10">
-                    <img alt="New picture" ngf-thumbnail="file || '/thumb.jpg'" style="height: 64px;width: 64px">
+                    <span ng-show="file">
+                        <img alt="New picture" ngf-thumbnail="file || '/thumb.jpg'" style="height: 64px;width: 64px">
+                    </span>
                     <div class="button btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
                         ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
                         ngf-resize="{width: 150, height: 200}"> <i class="fa fa-image"></i> Choose a picture </div>

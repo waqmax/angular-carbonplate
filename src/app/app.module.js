@@ -26,8 +26,7 @@
 
             service.responseError = function(response) {
                 if (response.status == 401){
-                    debugger;
-                    $rootScope.$broadcast("user:died");
+                    $rootScope.$emit("user:died");
                 }
                 return $q.reject(response);
             };

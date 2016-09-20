@@ -15,9 +15,15 @@
         service.getCurrentUser = getCurrentUser;
         service.fetchCurrentUser = fetchCurrentUser;
 
+
         service.signOut = signOut;
 
-        $rootScope.$on("user:dead",service.signOut());
+
+        $rootScope.$on("user:died",function(event,data){
+            event.stopPropagation();
+            service.signOut();
+        });
+
 
         function signOut() {
             localStorageService.remove("Token");
