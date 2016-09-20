@@ -16,12 +16,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left" ng-show="vm.isSignedIn()">
-                <li ng-class="{'active': currentState=='main.admin.books'}"><a ui-sref="main.admin.books"><i class="fa fa-book"></i> My Books</a></li>
-                <li ng-class="{'active': currentState=='main.admin.wishes'}"><a ui-sref="main.admin.wishes"><i class="fa fa-list"></i> My Wish list</a></li>
-                <li ng-class="{'active': currentState=='main.admin'}"><a ui-sref="main.admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li ng-class="{'active': $rootScope.currentState=='main.admin.books'}"><a ui-sref="main.admin.books"><i class="fa fa-book"></i> My Books</a></li>
+                <li ng-class="{'active': $rootScope.currentState=='main.admin.wishes'}"><a ui-sref="main.admin.wishes"><i class="fa fa-list"></i> My Wish list</a></li>
+                <li ng-class="{'active': $rootScope.currentState=='main.admin'}"><a ui-sref="main.admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="main.admin.home"><i class="fa fa-user"></i> Welcome {{vm.user.first_name}}</a></li>
+                <li ng-class="{'active': currentState=='main.admin.profile'}"><a ui-sref="main.admin.profile"><i class="fa fa-user"></i> Welcome {{vm.user.first_name}}</a></li>
                 <li><button class="btn btn-link navbar-btn" ng-click="vm.signOut()"><i class="fa fa-sign-out"></i> Sign out</button></li>
 
             </ul>
@@ -32,9 +32,9 @@
 
 <div class="container">
 
-    <div class="col-lg-3" ng-show="currentState == 'main.admin.books' || currentState == 'main.admin.wishes'">
+    <div class="col-lg-3" ng-show="vm.currentState == 'main.admin.books' || vm.currentState == 'main.admin.wishes'">
 
-        <div ng-show="vm.currentState == 'main.admin.books'">
+        <div ng-show="currentState == 'main.admin.books'">
             <h4>Genre</h4>
             <ul class="sidebar-filter">
                 <li ng-repeat="genre in vm.genreList"><input type="checkbox" name="genre.name"> {{genre.name}}</li>

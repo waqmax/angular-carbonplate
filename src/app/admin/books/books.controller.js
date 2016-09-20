@@ -16,7 +16,6 @@
         $rootScope.currentState = $state.current.name;
         vm.getBooks = getBooks;
         vm.initSearch = initSearch;
-        
         vm.getBooks();
 
         function getBooks2(){

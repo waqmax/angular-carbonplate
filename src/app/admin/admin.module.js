@@ -3,5 +3,5 @@
  */
 (function () {
     'use strict';
-    angular.module("app.admin",["app.admin.core","app.admin.books","app.admin.wishes"]);
+    angular.module("app.admin",["app.admin.core","app.admin.books","app.admin.wishes","app.admin.profile"]);
 })();

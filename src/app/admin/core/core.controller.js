@@ -7,7 +7,7 @@
     angular.module("app.admin.core")
         .controller("AdminController",AdminController);
 
-    function AdminController(AuthService,$state,$rootScope,CoreService){
+    function AdminController(AuthService,$state,$rootScope,CoreService,$scope){
         var vm = this;
         vm.currentState = $state.current.name;
         $rootScope.currentState = $state.current.name;
@@ -19,6 +19,12 @@
         vm.countryList = CoreService.countryList;
         vm.bookStatusList = CoreService.bookStatusList;
         vm.bookConditionList = CoreService.bookConditionList;
+
+        $scope.$on('user:updated',updateThisUser);
+        
+        function updateThisUser() {
+            vm.user = AuthService.getCurrentUser();
+        }
 
     }
     

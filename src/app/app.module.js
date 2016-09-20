@@ -13,7 +13,7 @@
 
         .run(function($rootScope, $location, $state, AuthService) {
 
-            $rootScope.$on( '$stateChangeStart', function(e, toState) {
+            $rootScope.$on('$stateChangeStart', function(e, toState) {
 
                 if(toState.name.indexOf("admin") !== -1)
                     if(!AuthService.isSignedIn()) {
@@ -21,15 +21,29 @@
                         $state.go('main.public.signin'); // go to login
                     }
             });
-        });
+        }).service('authInterceptor', function($q,$rootScope) {
+            var service = this;
+
+            service.responseError = function(response) {
+                if (response.status == 401){
+                    debugger;
+                    $rootScope.$broadcast("user:died");
+                }
+                return $q.reject(response);
+            };
+        }).config(['$httpProvider', function($httpProvider) {
+            $httpProvider.interceptors.push('authInterceptor');
+        }]);
 
 
     function TokenRestangular(Restangular,AppConstants,localStorageService) {
         return Restangular.withConfig(function (RestangularConfigurer) {
             // Set access token in header.
-            if (localStorageService.get("Token"))
+            if (localStorageService.get("Token")) {
                 RestangularConfigurer.setDefaultHeaders({Authorization: 'Token ' + localStorageService.get("Token")});
+            }
             RestangularConfigurer.setBaseUrl(AppConstants.localApi);
+
         });
     }
 
@@ -45,18 +59,5 @@
 
     }
 
-    function moduleRestangularConfig(RestangularProvider){
-         var newBaseUrl = "";
-         if (window.location.hostname == "localhost") {
-            newBaseUrl = "http://localhost:8000/api/";
-         }
-         else {
-            var deployedAt = window.location.href.substring(0, window.location.href);
-            newBaseUrl = deployedAt + "/api/rest/register";
-         }
-         RestangularProvider.setBaseUrl(newBaseUrl);
-         //RestangularProvider.setDefaultHeaders({token: "x-restangular"});
-         //RestangularProvider.setDefaultHeaders({Authorization: 'Token ' + localStorageService.get("Token")});
-    }
 
 })();

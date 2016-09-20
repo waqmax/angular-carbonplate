@@ -21,7 +21,7 @@
                 <li ng-class="{'active': currentState=='main.public.wish'}"><a ui-sref="main.public.wish"><i class="fa fa-list"></i> Wish list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-left" ng-show="vm.visitingAfterSignIn()">
-                <li ng-class="{'active': currentState=='main.admin'}"><a ui-sref="main.admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li ng-class="{'active': currentState=='main.admin.dashboard'}"><a ui-sref="main.admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right" ng-hide="vm.isSignedIn()">
@@ -29,7 +29,7 @@
                 <li ng-class="{'active': currentState=='main.public.signin'}"><a ui-sref="main.public.signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" ng-show="vm.isSignedIn()">
-                <li ng-class="{'active': currentState=='main.admin.home'}"><a ui-sref="main.admin.home"><i class="fa fa-user"></i> Welcome {{vm.user.first_name}}</a></li>
+                <li ng-class="{'active': currentState=='main.admin.profile'}"><a ui-sref="main.admin.profile"><i class="fa fa-user"></i> Welcome {{vm.user.first_name}}</a></li>
                 <li><button class="btn btn-link navbar-btn" ng-click="vm.signOut()"><i class="fa fa-sign-out"></i> Sign out</button></li>
             </ul>
         </div><!-- /.navbar-collapse -->

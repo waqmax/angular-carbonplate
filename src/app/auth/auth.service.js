@@ -6,7 +6,7 @@
     angular.module("app.auth").factory("AuthService",AuthService);
     angular.module("app.auth").factory("RootRestangular",RootRestangular);
 
-    function AuthService(RootRestangular,TokenRestangular,localStorageService,$state) {
+    function AuthService(RootRestangular,TokenRestangular,localStorageService,$state,$rootScope,$q) {
         var service = RootRestangular.service();
         service.requestToken = requestToken;
         service.setToken = setToken;
@@ -14,7 +14,10 @@
         service.setCurrentUser = setCurrentUser;
         service.getCurrentUser = getCurrentUser;
         service.fetchCurrentUser = fetchCurrentUser;
+
         service.signOut = signOut;
+
+        $rootScope.$on("user:dead",service.signOut());
 
         function signOut() {
             localStorageService.remove("Token");
@@ -34,6 +37,7 @@
 
         function setCurrentUser(user) {
             localStorageService.set("user",user);
+            $rootScope.$broadcast('user:updated',user);
         }
 
         function getCurrentUser() {
