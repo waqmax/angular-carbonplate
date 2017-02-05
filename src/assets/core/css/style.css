@@ -1,6 +1,10 @@
 /*
     General
 */
+map, div[map] {
+    display:block;
+    height:600px;
+}
 
 .required-asterisk{
     display:inline;

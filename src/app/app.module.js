@@ -3,7 +3,7 @@
  */
 (function () {
    'use strict'
-    angular.module('app',['app.core','app.public','app.auth','app.admin','LocalStorageModule'])
+    angular.module('app',['app.core','app.public','app.auth','app.admin','ngMap'])
         .constant("AppConstants",{
             "localApi":"http://localhost:8000/api",
 
